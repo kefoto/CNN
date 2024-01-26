@@ -10,7 +10,7 @@ https://youtu.be/3MMonOWGe0M?si=Vne1G2SrE71CE1hz
 https://www.youtube.com/watch?v=KuXjwB4LzSA&ab_channel=3Blue1Brown
 
 
-The conversion from Image into list of integer matrices in csv:
+The conversion from Image into a list of integer matrices in CSV:
 
 https://pjreddie.com/projects/mnist-in-csv/
 
