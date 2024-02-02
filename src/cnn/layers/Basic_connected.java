@@ -196,4 +196,20 @@ public class Basic_connected extends Layer {
 		this._outLength = _outLength;
 	}
 
+	public double[] get_x(){
+		return x;
+	}
+
+	public double[] get_z(){
+		return z;
+	}
+
+	public void set_x(double[] x){
+		this.x = x;
+	}
+
+	public void set_z(double[] z){
+		this.z = z;
+	}
+
 }

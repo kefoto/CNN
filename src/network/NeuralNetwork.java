@@ -71,6 +71,16 @@ public class NeuralNetwork {
 		
 		return guess;
 	}
+
+	public int guess(double[][] image) {
+		List<double[][]> inputList = new ArrayList<>();
+		inputList.add(MatrixUtility.multiply(image, (1.0/scaleFactor)));
+		
+		double[] output = _layers.get(0).getOutput(inputList);
+		int guess = getMax(output);
+		
+		return guess;
+	}
 	
 	public float test(List<Image> images) {
 		int correct = 0;
@@ -97,6 +107,8 @@ public class NeuralNetwork {
 			double[] errorLoss = getErrors(output, img.getLabel());
 			
 			_layers.get((_layers.size() - 1)).backPropagation(errorLoss);
+
+			// System.out.println("training");
 		}
 		
 	}

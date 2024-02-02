@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class dataReader {
     private final int rows = 28;
     private final int cols = 28;
-
+    
 
     public List<Image> readData(String path){
         List<Image> images = new ArrayList<>();

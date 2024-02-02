@@ -374,6 +374,13 @@ public class ConvolutionLayer extends Layer{
 		this._inCols = _inCols;
 	}
 	
+	public void set_Last_input(List<double[][]> _lastInput){
+		this._lastInput = _lastInput;
+	}
+
+	public List<double[][]> get_Last_input(){
+		return _lastInput;
+	}
 }
 
 

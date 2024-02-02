@@ -2,7 +2,6 @@ package network;
 
 
 import cnn.layers.*;
-import cnn.dta.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -39,7 +38,6 @@ public class NetworkBuilder {
 			_layers.add(new MaxPoolLayer(stepsize, windowsize, 1, _inputRows, _inputCols));
 		
 		} else {
-		
 			Layer prev = _layers.get(_layers.size() - 1);
 			_layers.add(new MaxPoolLayer(stepsize, windowsize, prev.getOutputLength(), prev.getOutputRows(), prev.getOutputRows()));
 		
@@ -47,6 +45,7 @@ public class NetworkBuilder {
 		
 	}
 	
+
 	public void addLayer(int outLength, double learningRate, long SEED) {
 		if(_layers.isEmpty()) {
 			_layers.add(new Basic_connected((_inputCols*_inputRows), outLength, SEED, learningRate));
@@ -63,4 +62,9 @@ public class NetworkBuilder {
 		return nn;
 	}
 	
+	public List<Layer> getLayers() {
+		return _layers;
+	}
+	
+
 }
