@@ -1,3 +1,15 @@
+Author: Ke Xu
+
+This Convolutional Neural Network consists of the Convolutional Layer, the MaxPool Layer, and the fully connected Layer to predict the MNIST Dataset in a CSV form.
+
+The self-implemented Convolutional Neural Network model is based on the short YouTube Series by Rae, yet I improved on it by reducing spacetime and runtime.
+
+I had another idea for this small project: I stored the model data and let users interact by drawing a number with a computer guessing the drawing after each stroke.
+Others have done it using Python and implemented ResNet to accurately guess each drawn number, yet my model is lacking and needs an algorithm to locate the drawn number. 
+
+The output accuracy is around 85%, meaning there is much room to improve.
+The Current Model is still unfinished with the next idea being the Batch Normalization layer.
+
 
 Reference:
 
