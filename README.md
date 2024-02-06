@@ -7,6 +7,8 @@ The self-implemented Convolutional Neural Network model is based on the short Yo
 I had another idea for this small project: I stored the model data and let users interact by drawing a number with a computer guessing the drawing after each stroke.
 Others have done it using Python and implemented ResNet to accurately guess each drawn number, yet my model is lacking and needs an algorithm to locate the drawn number. 
 
+To achieve this, JPanel tracks the mouse movement, stores the canvas as PNG after each paint stroke, and converts the PNG into a matrix with pixel values from 0 to 255.
+
 The output accuracy is around 85%, meaning there is much room to improve.
 The Current Model is still unfinished with the next idea being the Batch Normalization layer.
 
