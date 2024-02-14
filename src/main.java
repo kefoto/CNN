@@ -3,8 +3,7 @@ import cnn.layers.*;
 
 import java.util.List;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Collections;
 import network.*;
 //import nn.DecayingLearningRateSchedule;
@@ -34,10 +33,21 @@ public class main {
 		System.out.println("images Test size: " + imagesTest.size());
 
 		NetworkBuilder builder = new NetworkBuilder(_image_size, _image_size, 256 * 100);
-		builder.addConvolutionLayer(8, 5, 1, 0.1, SEED);
+		
+		
+		
+		//each neuron from the previous convolution layer should have one neuron 10 -> 10
+		//may be each neuron is only connected to one neuron but not all of the neuron.
+		//TODO: FIX THIS OR FIND OUT ABOUT THE NEURON INPUT (note, all the input size for each layer should be the same)
+		//TODO: OR I did not have to fix it, I need to change the dimensionality of 10 parts of 10 kernels.
+		
+		//maxpool returns 0
+		builder.addConvolutionLayer(10, 5, 2, 0.1, SEED);
 		builder.addMaxPoolLayer(3, 2);
-		// builder.addConvolutionLayer(8, 5, 1, 0.1, SEED);
-		// builder.addMaxPoolLayer(3, 2);
+		
+//		builder.addConvolutionLayer(10, 5, 1, 0.1, SEED);
+//		builder.addMaxPoolLayer(2, 2);
+		builder.addLayer(20, 0.1, SEED);
 		builder.addLayer(10, 0.1, SEED);
 
 		NeuralNetwork net = builder.build();
@@ -46,12 +56,14 @@ public class main {
 		System.out.println("Pre training success rate: " + rate);
 
 		for (int i = 0; i < epochs; i++) {
-			
+			long startTime = System.currentTimeMillis();
 			Collections.shuffle(imagesTrain);
 			net.train(imagesTrain);
 			rate = net.test(imagesTest);
+			long endTime = System.currentTimeMillis();
 			System.out.println("Success rate after round " + i + ": " + rate);
 			weightCheckPoint.writeWeights("src/weights", net);
+			System.out.println("RunTime after round " + i + ": " + ((endTime - startTime)/ 1000));
 		}
 
 	}

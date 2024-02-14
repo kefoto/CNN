@@ -161,6 +161,7 @@ public class ConvolutionLayer extends Layer{
 	}
 	
 	
+	
 	@Override
 	public void backPropagation(double[] loss) {
 		List<double[][]> result = vectorToMatrix(loss, _inLength, _inRows, _inCols);
@@ -169,24 +170,27 @@ public class ConvolutionLayer extends Layer{
 		
 	}
 
+	
 	@Override
 	public void backPropagation(List<double[][]> loss) {
 		
 		List<double[][]> filtersDelta = new ArrayList<>();
 		List<double[][]> previousLossX = new ArrayList<>();
 		
+		//initiate the deltas for each filter
 		for(int f = 0; f < _filters.size(); f++) {
 			filtersDelta.add(new double[_filtersize][_filtersize]);
 		}
 		
-		
+		//check the last input
 		for(int i = 0; i < _lastInput.size(); i++) {
 			
 			double[][] errorForInput = new double[_inRows][_inCols];
 			
 			for(int f = 0; f <  _filters.size(); f++) {
 				double[][] currentkernel = _filters.get(f);
-				double[][] error = loss.get(i* _filters.size() * f);
+				//why 
+				double[][] error = loss.get(i* _filters.size() + f);
 				
 				double[][] spacedError = spaceArray(error);
 				double[][] dLdF = convolve(_lastInput.get(i), spacedError, 1);

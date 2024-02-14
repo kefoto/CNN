@@ -151,6 +151,7 @@ public class Basic_connected extends Layer {
     	}
     	
     }
+   
     
     public double reLu(double input) {
     	if(input <= 0) {

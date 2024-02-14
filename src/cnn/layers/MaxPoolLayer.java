@@ -87,7 +87,8 @@ public class MaxPoolLayer extends Layer {
 //			return output;
 //		}
 	}
-
+	
+	//TODO: THe output returns and array of 100 number maxpool output instead of 10
 	@Override
 	public double[] getOutput(double[] input) {
 		List<double[][]> temp = vectorToMatrix(input, _inLength, _inRows, _inCols);
