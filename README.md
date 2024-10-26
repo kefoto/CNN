@@ -12,6 +12,14 @@ To achieve this, JPanel tracks the mouse movement, stores the canvas as PNG afte
 The output accuracy is around 85%, meaning there is much room to improve.
 The Current Model is still unfinished with the next idea being the Batch Normalization layer.
 
+To build the main class, you can recompile the class by directory in the folder:
+
+`javac javac nn/*.java math/util/*.java Main.java`
+
+To Run nn: 
+
+`java Main.java [Mode] [epochs/steps]`
+
 
 Reference:
 
